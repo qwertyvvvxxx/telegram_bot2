@@ -8,12 +8,12 @@ InlineKeyboardButton
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Посилання"),
-            KeyboardButton(text="Площі фігур")
+            KeyboardButton(text="links"),
+            KeyboardButton(text="finding area")
         ],
         [
-            KeyboardButton(text="калькулятор"),
-            KeyboardButton(text="спец. кнопки")
+            KeyboardButton(text="calculator"),
+            KeyboardButton(text="other")
         ]
     ],
     resize_keyboard=True,
@@ -26,6 +26,12 @@ links_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(text="YouTube", url="https://www.youtube.com/playlist?list=WL"),
+        ],
+        [
+            InlineKeyboardButton(text="Restorant", url="https://restorant-d84f8.firebaseapp.com/")
+        ],
+        [
+            InlineKeyboardButton(text="Fitlife", url="https://fitlife-a5343.firebaseapp.com/")
         ]
     ]
 )
@@ -33,11 +39,21 @@ links_kb = InlineKeyboardMarkup(
 areas_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Квадрат", callback_data="square_area"),
-            InlineKeyboardButton(text="Коло", callback_data="circle_area")
+            InlineKeyboardButton(text="square", callback_data="square_area"),
+            InlineKeyboardButton(text="circle", callback_data="circle_area")
         ],
         [
-            InlineKeyboardButton(text="Трикутник", callback_data="triangle_area")
+            InlineKeyboardButton(text="triangle", callback_data="triangle_area")
+        ]
+    ]
+)
+
+special_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Button 1", callback_data="special_1"),
+            InlineKeyboardButton(text="Button 2", callback_data="special_2"),
+            InlineKeyboardButton(text="Button 3", callback_data="special_3")
         ]
     ]
 )
