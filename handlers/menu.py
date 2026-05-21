@@ -23,21 +23,6 @@ async def show_calculator(message: Message):
 
 # ІНЛАЙН-КНОПОКИ
 
-@router.callback_query(F.data == "square_area")
-async def process_square(callback: CallbackQuery):
-    await callback.answer("You have selected a square")
-    await callback.message.answer("here will be a script to find areas")
-
-@router.callback_query(F.data == "circle_area")
-async def process_square(callback: CallbackQuery):
-    await callback.answer("You have selected a circle")
-    await callback.message.answer("here will be a script to find areas")
-
-@router.callback_query(F.data == "triangle_area")
-async def process_square(callback: CallbackQuery):
-    await callback.answer("You have selected a triangle")
-    await callback.message.answer("here will be a script to find areas")
-
 @router.callback_query(F.data.startswith("special_"))
 async def process_special_buttons(callback: CallbackQuery):
     button_number = callback.data.split("_")[1]
