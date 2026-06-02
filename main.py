@@ -2,9 +2,12 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
 from aiogram.client.default import DefaultBotProperties
+from google import genai
 
 from config import TELEGRAM_TOKEN
+from config import GEMINI_API_KEY
 from handlers import get_routers
+
 
 bot = Bot(TELEGRAM_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()

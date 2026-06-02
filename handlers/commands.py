@@ -1,5 +1,6 @@
 import random
 from aiogram import Router
+from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.filters import Command, CommandObject
 import keyboards
@@ -8,7 +9,8 @@ router = Router()
 
 
 @router.message(Command('start'))
-async def start(message: Message):
+async def start(message: Message, state: FSMContext):
+    await state.clear()
     await message.answer(f"Hello, <b>{message.from_user.full_name}</b>", reply_markup=keyboards.main_kb)
 
 

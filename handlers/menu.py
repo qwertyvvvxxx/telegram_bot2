@@ -1,6 +1,8 @@
 from aiogram import Router, F
+from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
 import keyboards
+from handlers.gemini import GeminiStates
 
 router = Router()
 
@@ -16,9 +18,10 @@ async def show_areas(message: Message):
 async def show_other(message: Message):
     await message.answer("Other functions:", reply_markup=keyboards.special_kb)
 
-@router.message(F.text.lower() == "calculator")
-async def show_calculator(message: Message):
-    await message.answer("This feature has not been implemented yet ")
+@router.message(F.text.lower() == "chat with ai")
+async def start_gemini(message: Message, state: FSMContext):
+    await state.set_state(GeminiStates.wait_for_prompt)
+    await message.answer("Gemini started, what we will do?", reply_markup=keyboards.calcel_kb)
 
 
 # ІНЛАЙН-КНОПОКИ

@@ -12,7 +12,7 @@ main_kb = ReplyKeyboardMarkup(
             KeyboardButton(text="finding area")
         ],
         [
-            KeyboardButton(text="calculator"),
+            KeyboardButton(text="chat with Ai"),
             KeyboardButton(text="other")
         ]
     ],
@@ -57,3 +57,10 @@ special_kb = InlineKeyboardMarkup(
         ]
     ]
 )
+
+calcel_kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="cancel")]
+        ],
+    resize_keyboard=True,
+    )
