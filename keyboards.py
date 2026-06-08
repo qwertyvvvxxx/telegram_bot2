@@ -5,15 +5,23 @@ InlineKeyboardMarkup,
 InlineKeyboardButton
 )
 
+# ============================================
+# ГОЛОВНЕ МЕНЮ (Reply Keyboard)
+# ============================================
+
+# Головна клавіатура з основними функціями бота
+# resize_keyboard=True - автоматично підбирає розмір кнопок
+# one_time_keyboard=True - клавіатура ховається після натискання
+# input_field_placeholder - підказка в полі вводу
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="links"),
-            KeyboardButton(text="finding area")
+            KeyboardButton(text="links"),           # Корисні посилання
+            KeyboardButton(text="finding area")     # Калькулятор площ
         ],
         [
-            KeyboardButton(text="chat with Ai"),
-            KeyboardButton(text="other")
+            KeyboardButton(text="chat with Ai"),    # Чат з Gemini AI
+            KeyboardButton(text="other")            # Додаткові функції
         ]
     ],
     resize_keyboard=True,
@@ -22,6 +30,11 @@ main_kb = ReplyKeyboardMarkup(
     selective=True,
 )
 
+# ============================================
+# INLINE КЛАВІАТУРИ (з посиланнями та callback)
+# ============================================
+
+# Клавіатура з корисними посиланнями (відкриваються в браузері)
 links_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -36,18 +49,21 @@ links_kb = InlineKeyboardMarkup(
     ]
 )
 
+# Клавіатура для вибору геометричної фігури
+# callback_data - дані, які передаються обробнику при натисканні
 areas_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="square", callback_data="square_area"),
-            InlineKeyboardButton(text="circle", callback_data="circle_area")
+            InlineKeyboardButton(text="square", callback_data="square_area"),      # Квадрат
+            InlineKeyboardButton(text="circle", callback_data="circle_area")       # Коло
         ],
         [
-            InlineKeyboardButton(text="triangle", callback_data="triangle_area")
+            InlineKeyboardButton(text="triangle", callback_data="triangle_area")   # Трикутник
         ]
     ]
 )
 
+# Спеціальні кнопки для додаткових функцій
 special_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -58,9 +74,14 @@ special_kb = InlineKeyboardMarkup(
     ]
 )
 
+# ============================================
+# ДОПОМІЖНІ КЛАВІАТУРИ
+# ============================================
+
+# Клавіатура для скасування дії (використовується в режимі AI чату)
 calcel_kb = ReplyKeyboardMarkup(
         keyboard=[
-            [KeyboardButton(text="cancel")]
+            [KeyboardButton(text="cancel")]  # Кнопка для виходу з поточного режиму
         ],
     resize_keyboard=True,
     )
