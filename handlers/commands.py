@@ -1,7 +1,7 @@
 import random
 from aiogram import Router
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message
+from aiogram.types import Message, FSInputFile
 from aiogram.filters import Command, CommandObject
 import keyboards
 
@@ -22,7 +22,19 @@ async def start(message: Message, state: FSMContext):
     - Відображає головне меню
     """
     await state.clear()  # Скидаємо всі попередні стани (якщо користувач був у режимі AI чи калькулятора)
-    await message.answer(f"Hello, <b>{message.from_user.full_name}</b>", reply_markup=keyboards.main_kb)
+    photo = FSInputFile("resourses/start_image.jpg")
+    await message.answer_photo(photo)
+    await message.answer(
+        f"Hello, <b>{message.from_user.first_name}</b>! ✨\n\n"
+        f"🤖 Glad to see you in our bot.\n"
+        f"I'm ready to help you with your tasks!\n\n"
+        f"<b>Here's what I can do:</b>\n"
+        f"• 🧠 <code>Artificial Intelligence</code> – answers to any of your questions\n"
+        f"• 📈 <code>Useful Tools</code> – area calculators and quick answers\n"
+        f"• 🎲 <code>Randomizer</code> – random number generation\n\n"
+        f"🚀 Your main menu is now active. Select the button you need below and let's go! 👇",
+        reply_markup=keyboards.main_kb
+    )
 
 
 # ============================================

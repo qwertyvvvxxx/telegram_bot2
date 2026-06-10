@@ -11,13 +11,45 @@ router = Router()
 # ОБРОБНИКИ КНОПОК ГОЛОВНОГО МЕНЮ
 # ============================================
 
+# ============================================
+# ОБРОБНИКИ ПОСИЛАНЬ
+# ============================================
+
 @router.message(F.text.lower() == "links")
 async def show_links(message: Message):
     """
     Обробляє натискання кнопки "links"
     Показує inline клавіатуру з корисними посиланнями
     """
-    await message.answer("Your links:", reply_markup=keyboards.links_kb)
+    await message.answer("Select the category of links that interests you:", reply_markup=keyboards.categories_kb)
+
+@router.callback_query(F.data == "links_funny")
+async def show_useful_links(callback: CallbackQuery):
+    await callback.message.edit_text(
+        "🧠 <b>Useful Links</b>\n\nОсь добірка крутих та корисних інструментів:",
+        reply_markup=keyboards.links_kb,
+    )
+    await callback.answer()
+
+@router.callback_query(F.data == "links_useful")
+async def show_useful_links(callback: CallbackQuery):
+    await callback.message.edit_text(
+        "🎲 <b>Funny Links</b>\n\nТут зібрані залипальні та прикольні сайти:",
+        reply_markup=keyboards.links_kb,
+    )
+    await callback.answer()
+
+@router.callback_query(F.data == "main_links")
+async def back_to_main_links(callback: CallbackQuery):
+    await callback.message.edit_text(
+        "Обери категорію посилань, яка тебе цікавить:",
+        reply_markup=keyboards.categories_kb
+    ),
+    await callback.answer()
+
+# ============================================
+# ОБРОБНИКИ ІНШИХ КНОПОК ГОЛОВНОГО МЕНЮ
+# ============================================
 
 @router.message(F.text.lower() == "finding area")
 async def show_areas(message: Message):

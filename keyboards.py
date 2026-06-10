@@ -33,18 +33,44 @@ main_kb = ReplyKeyboardMarkup(
 # ============================================
 # INLINE КЛАВІАТУРИ (з посиланнями та callback)
 # ============================================
+categories_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Useful links", callback_data="links_useful")
+        ],
+        [
+            InlineKeyboardButton(text="Funny links", callback_data="links_funny")
+        ]
+    ]
+)
+
 
 # Клавіатура з корисними посиланнями (відкриваються в браузері)
 links_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="YouTube", url="https://www.youtube.com/playlist?list=WL"),
+            InlineKeyboardButton(text="🟥 YouTube - your wishlist", url="https://www.youtube.com/playlist?list=WL"),
         ],
         [
-            InlineKeyboardButton(text="Restorant", url="https://restorant-d84f8.firebaseapp.com/")
+            InlineKeyboardButton(text="🍽️ Restorant - the author's website", url="https://restorant-d84f8.firebaseapp.com/")
         ],
         [
-            InlineKeyboardButton(text="Fitlife", url="https://fitlife-a5343.firebaseapp.com/")
+            InlineKeyboardButton(text="🌱 Fitlife - the author's other website", url="https://fitlife-a5343.firebaseapp.com/")
+        ],
+        [
+            InlineKeyboardButton(text="🌍 а window to any corner of the world", url="https://www.window-swap.com/Window")
+        ],
+        [
+            InlineKeyboardButton(text="📩 Temporary email (10 min)", url="https://10minutemail.com")
+        ],
+        [
+            InlineKeyboardButton(text="🎮 Addictive mini-games", url="https://neal.fun")
+        ],
+        [
+            InlineKeyboardButton(text="️💻 a stylish screenshot of the code", url="https://carbon.now.sh")
+        ],
+        [
+            InlineKeyboardButton(text="📊 Check your internet speed", url="https://fast.com")
         ]
     ]
 )
