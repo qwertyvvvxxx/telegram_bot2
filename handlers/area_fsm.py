@@ -1,5 +1,5 @@
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, FSInputFile
 from aiogram.fsm.context import FSMContext
 import math
 from aiogram.fsm.state import State, StatesGroup
@@ -32,6 +32,9 @@ async def square_start(callback: CallbackQuery, state: FSMContext):
     Встановлює стан очікування введення довжини сторони
     """
     await callback.answer()  # Підтверджуємо отримання callback
+    photo = FSInputFile("resources/square-a-side.png")
+    await callback.message.answer_photo(photo)
+
     await callback.message.answer("📐 Calculating the Area of a Square.\nEnter the side length:")
     await state.set_state(AreaStates.waiting_for_square_side)
 
@@ -42,6 +45,9 @@ async def circle_area_start(callback: CallbackQuery, state: FSMContext):
     Встановлює стан очікування введення радіуса
     """
     await callback.answer()
+    photo = FSInputFile("resources/circle.png")
+    await callback.message.answer_photo(photo)
+
     await callback.message.answer("📐 Calculating the Area of a Circle.\nEnter the radius:")
     await state.set_state(AreaStates.waiting_for_circle_radius)
 
@@ -53,6 +59,9 @@ async def triangle_start(callback: CallbackQuery, state: FSMContext):
     Для трикутника потрібно 2 параметри: основа і висота (двокрокове введення)
     """
     await callback.answer()
+    photo = FSInputFile("resources/triangle_base.png")
+    await callback.message.answer_photo(photo)
+
     await callback.message.answer("📐 Calculating the Area of a Triangle.\nEnter the length of the base of the triangle:")
     await state.set_state(AreaStates.waiting_for_triangle_base)
 
@@ -114,6 +123,10 @@ async def process_triangle_base(message: Message, state: FSMContext):
 
         # Зберігаємо довжину основи в FSM context для наступного кроку
         await state.update_data(base=base)
+
+        photo = FSInputFile("resources/triangle_height.png")
+        await message.answer_photo(photo)
+
         await message.answer("Great! Now enter the height of the triangle:")
 
         # Переходимо до наступного стану - очікування висоти

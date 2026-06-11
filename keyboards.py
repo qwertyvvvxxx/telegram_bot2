@@ -95,11 +95,11 @@ links_useful_kb = InlineKeyboardMarkup(
 areas_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="square", callback_data="square_area"),      # Квадрат
-            InlineKeyboardButton(text="circle", callback_data="circle_area")       # Коло
+            InlineKeyboardButton(text="🟦 square", callback_data="square_area"),      # Квадрат
+            InlineKeyboardButton(text="🟢 circle", callback_data="circle_area")       # Коло
         ],
         [
-            InlineKeyboardButton(text="triangle", callback_data="triangle_area")   # Трикутник
+            InlineKeyboardButton(text="🔺 triangle", callback_data="triangle_area")   # Трикутник
         ]
     ]
 )
