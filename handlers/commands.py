@@ -1,5 +1,5 @@
 import random
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, FSInputFile
 from aiogram.filters import Command, CommandObject

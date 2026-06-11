@@ -40,13 +40,31 @@ categories_kb = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(text="Funny links", callback_data="links_funny")
+        ],
+        [
+            InlineKeyboardButton(text="◀️ back", callback_data="main_menu")
         ]
     ]
 )
 
+links_funny_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="🟥 YouTube - your wishlist", url="https://www.youtube.com/playlist?list=WL"),
+        ],
+        [
+            InlineKeyboardButton(text="🌍 а window to any corner of the world", url="https://www.window-swap.com/Window")
+        ],
+        [
+            InlineKeyboardButton(text="🎮 Addictive mini-games", url="https://neal.fun")
+        ],
+        [
+            InlineKeyboardButton(text="◀️ back", callback_data="main_links")
+        ]
+    ]
+)
 
-# Клавіатура з корисними посиланнями (відкриваються в браузері)
-links_kb = InlineKeyboardMarkup(
+links_useful_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(text="🟥 YouTube - your wishlist", url="https://www.youtube.com/playlist?list=WL"),
@@ -58,19 +76,16 @@ links_kb = InlineKeyboardMarkup(
             InlineKeyboardButton(text="🌱 Fitlife - the author's other website", url="https://fitlife-a5343.firebaseapp.com/")
         ],
         [
-            InlineKeyboardButton(text="🌍 а window to any corner of the world", url="https://www.window-swap.com/Window")
-        ],
-        [
             InlineKeyboardButton(text="📩 Temporary email (10 min)", url="https://10minutemail.com")
-        ],
-        [
-            InlineKeyboardButton(text="🎮 Addictive mini-games", url="https://neal.fun")
         ],
         [
             InlineKeyboardButton(text="️💻 a stylish screenshot of the code", url="https://carbon.now.sh")
         ],
         [
             InlineKeyboardButton(text="📊 Check your internet speed", url="https://fast.com")
+        ],
+        [
+            InlineKeyboardButton(text="◀️ back", callback_data="main_links")
         ]
     ]
 )
