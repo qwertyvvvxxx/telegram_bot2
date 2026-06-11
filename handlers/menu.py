@@ -1,6 +1,6 @@
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, FSInputFile
 import keyboards
 from handlers.gemini import GeminiStates
 
@@ -85,7 +85,16 @@ async def start_gemini(message: Message, state: FSMContext):
     - Показує кнопку "cancel" для виходу з режиму
     """
     await state.set_state(GeminiStates.wait_for_prompt)
-    await message.answer("Gemini started, what we will do?", reply_markup=keyboards.calcel_kb)
+    photo = FSInputFile("resources/gemini_start_image.png")
+    await message.answer_photo(photo)
+    await message.answer(
+        "🌐 <b>The Gemini neural network is online.</b>\n\n"
+        "The chat channel is open. You can ask me anything, "
+        "Send me a problem or just chat. I'm designed to provide quick "
+        "and accurate answers.\n\n"
+        "⌨️ <i>I'm waiting for your request...</i>",
+        reply_markup=keyboards.calcel_kb
+    )
 
 
 # ============================================

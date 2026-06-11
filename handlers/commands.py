@@ -22,7 +22,7 @@ async def start(message: Message, state: FSMContext):
     - Відображає головне меню
     """
     await state.clear()  # Скидаємо всі попередні стани (якщо користувач був у режимі AI чи калькулятора)
-    photo = FSInputFile("resourses/start_image.jpg")
+    photo = FSInputFile("resources/start_image.jpg")
     await message.answer_photo(photo)
     await message.answer(
         f"Hello, <b>{message.from_user.first_name}</b>! ✨\n\n"
