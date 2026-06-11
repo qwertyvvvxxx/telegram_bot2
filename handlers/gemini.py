@@ -50,9 +50,6 @@ async def handle_gemini_request(message: Message):
     user_fullname = message.from_user.full_name
     user_prompt = message.text
 
-    # Логування запиту в консоль для відстеження
-    print(f"\n[Gemini Request] User: {user_fullname} | Prompt: {user_prompt}")
-
     # Показуємо індикатор "печатає..." в чаті
     await message.bot.send_chat_action(chat_id=message.chat.id, action="typing")
 
