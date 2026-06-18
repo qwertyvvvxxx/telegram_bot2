@@ -70,12 +70,6 @@ links_useful_kb = InlineKeyboardMarkup(
             InlineKeyboardButton(text="🟥 YouTube - your wishlist", url="https://www.youtube.com/playlist?list=WL"),
         ],
         [
-            InlineKeyboardButton(text="🍽️ Restorant - the author's website", url="https://restorant-d84f8.firebaseapp.com/")
-        ],
-        [
-            InlineKeyboardButton(text="🌱 Fitlife - the author's other website", url="https://fitlife-a5343.firebaseapp.com/")
-        ],
-        [
             InlineKeyboardButton(text="📩 Temporary email (10 min)", url="https://10minutemail.com")
         ],
         [
@@ -108,9 +102,13 @@ areas_kb = InlineKeyboardMarkup(
 special_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Button 1", callback_data="special_1"),
-            InlineKeyboardButton(text="Button 2", callback_data="special_2"),
-            InlineKeyboardButton(text="Button 3", callback_data="special_3")
+            InlineKeyboardButton(text="🍽️ Restorant - the author's website", url="https://restorant-d84f8.firebaseapp.com/")
+        ],
+        [
+            InlineKeyboardButton(text="🌱 Fitlife - the author's other website", url="https://fitlife-a5343.firebaseapp.com/")
+        ],
+        [
+            InlineKeyboardButton(text="👾 qwertyvvvxxx - the author's GitHub", url="https://github.com/qwertyvvvxxx")
         ]
     ]
 )
